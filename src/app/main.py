@@ -6,7 +6,11 @@ import pickle
 import os
 
 colunas = ['tamanho','ano','garagem']
-modelo = pickle.load(open('../../models/modelo.sav','rb'))
+
+# Para deploy via Maquina/git:
+#modelo = pickle.load(open('../../models/modelo.sav','rb'))
+# Para deploy via Docker:
+modelo = pickle.load(open('models/modelo.sav','rb'))
 
 app = Flask(__name__)
 app.config['BASIC_AUTH_USERNAME'] = os.environ.get('BASIC_AUTH_USERNAME')
